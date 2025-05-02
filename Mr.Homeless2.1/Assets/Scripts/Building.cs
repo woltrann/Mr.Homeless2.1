@@ -21,10 +21,13 @@ public class Building : MonoBehaviour
             else
                 travelTime = 120f; // 2 saat
         }
+        //else if (LastVisitedBuilding = this) { BuildingUI.Instance.BuildingPanel2Show(); }
+
         BuildingUI.Instance.Show(buildingName, travelTime, () =>   
         { 
             Debug.Log($"{buildingName} için iþlem baþlatýldý!");
-            timeAdd.Clock(travelTime);
+            BuildingUI.Instance.Clock(travelTime);
+            CharacterMovement.Instance.MoveTo(transform);            
             LastVisitedBuilding = this; // Þu anki binayý "son gidilen" olarak kaydet
         }); 
     }
