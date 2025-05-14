@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Getto
   m_EditorClassIdentifier: 
   districtName: Getto Mahalleler
-  coordinates: {x: 0, y: 30, z: -140}
+  CamCoordinates: {fileID: 0}
   districtColor: {r: 0.6528301, g: 0.28229573, b: 0, a: 0}
   controllingFaction: {fileID: 11400000, guid: 9451fe5b1dcd1194db6ab40f7e8e95f3, type: 2}
+  buildings:
+  - {fileID: 11400000, guid: 43369af61dee3d545aeb7cc102a78879, type: 2}
   heatLevel: 0.6
   description: 
