@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc597a05bae92c4da715dcf807c1574, type: 3}
+  m_Name: Task2
+  m_EditorClassIdentifier: 
+  taskName: "G\xF6rev2"
+  description: "\u0130\u015F adam\u0131n\u0131 ziyaret et"
+  requiredItems:
+  - "\xD6mer Bey'i bul"
+  rewardText:
+  - +200 dolar
+  - "+5 sayg\u0131nl\u0131k"

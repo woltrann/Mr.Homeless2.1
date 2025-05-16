@@ -4,8 +4,9 @@ using UnityEngine;
 public class NPCs : ScriptableObject
 {
     public string NPCName;
+    public string NPCJob;
     public Sprite sprite;
     public string description;
     public FactionData FactionData;
-    
+    public int affinityValue;
 }

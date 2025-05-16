@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1418c9d0085f12c4b9d27a858488d6e1, type: 3}
   m_Name: Ahmet
   m_EditorClassIdentifier: 
-  name: "Ahmet G\xFCl"
-  sprite: {fileID: 0}
+  NPCName: "Ahmet G\xFCl"
+  NPCJob: Kasap
+  sprite: {fileID: 21300000, guid: 8ad6773d083f1eb49a1a733b18aec95f, type: 3}
   description: "Mahalle \xE7ocu\u011Fu"
   FactionData: {fileID: 11400000, guid: e3f7bfa638fc5b346a9c13c4b8046599, type: 2}
+  affinityValue: 10
