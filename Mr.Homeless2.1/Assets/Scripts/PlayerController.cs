@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float zoomSpeed = 2f;
     [SerializeField] private float minZoomDistance = 5f;
     [SerializeField] private float maxZoomDistance = 20f;
-    //[SerializeField] private float zoomSmoothTime = 0.2f;
+    [SerializeField] private float zoomSmoothTime = 0.2f;
     [SerializeField] private Transform cameraTransform;
 
 
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
         turnInput = turnAction.ReadValue<float>();
         zoomInput = zoomAction.ReadValue<float>();
-        Debug.Log("Zoom Input: " + zoomInput); //  bu satýrý ekle
+        Debug.Log("Zoom Input: " + zoomInput); //  bu satÃ½rÃ½ ekle
 
         Transform cam = playerTransform;
         Move(cam);
@@ -104,14 +104,13 @@ public class PlayerController : MonoBehaviour
         float smoothedDistance = Mathf.SmoothDamp(currentDistance, targetDistance, ref zoomVelocity, zoomSmoothTime);
         cam.position = transform.position + direction * smoothedDistance;
 
-<<<<<<< Updated upstream
-=======
+
         if (Mathf.Abs(currentDistance - targetDistance) > 0.01f) // Avoid jitter
         {
             float lerpSpeed = 5f;
             cam.position = Vector3.Lerp(cam.position, transform.position + direction * targetDistance, Time.deltaTime * lerpSpeed);
         }
->>>>>>> Stashed changes
+
     }
 
     public void SetLastCamTransform()

@@ -1,64 +1,64 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public DialogueLoader loader; // Reference to the DialogueLoader
-    private DialogueData currentDialogue; // Holds the current dialogue data
-    private DialogueNode currentNode; // Tracks the current node in the dialogue
-    private string startNodeId; // Tracks the starting node ID
+    //public CallDialogue[] dialogues;
+    public CallDialogue dialogues;
+    public DialogueData dialogueData;
 
-    void Start()
+    public TextMeshProUGUI Speaker;
+    public TextMeshProUGUI Text;
+
+    public Button choice_1;
+    public Button choice_2;
+    public Button choice_3;
+
+    private DialogueNode currentNode;
+    private void Start()
     {
-        // Initialize the starting node ID (you can set this dynamically if needed)
-        startNodeId = loader.dialogueData.startNodeId;
+        dialogueData = dialogues.data;
+        currentNode = dialogueData.nodes[0];
+    }
+    //public void CurrentDialogue(string dialogueID)
+    //{
+    //    foreach (CallDialogue dialogue in dialogues)
+    //    {
+    //        if (dialogue.data.id == dialogueID)
+    //        {
+    //            dialogueData = dialogue.data;
+    //            currentNode = dialogueData.nodes[0];
+    //        }
+    //    }
+    //}
+    private void Update()
+    {
+        Speaker.text = currentNode.speaker;
+        Text.text = currentNode.text;
 
-        // Start the dialogue
-        StartDialogue(startNodeId);
+        choice_1.GetComponentInChildren<TextMeshProUGUI>().text = currentNode.choices[0].text;
+        choice_2.GetComponentInChildren<TextMeshProUGUI>().text = currentNode.choices[1].text;
+        if (currentNode.choices.Count > 2)
+        choice_3.GetComponentInChildren<TextMeshProUGUI>().text = currentNode.choices[2].text;
+
     }
 
-    public void StartDialogue(string dialogueId)
+    public void GetChoice(int index)
     {
-        // Find the starting node based on the startNodeId
-        currentNode = loader.dialogueData.nodes.Find(n => n.id == startNodeId);
-
-        // Show the starting node
-        ShowNode(currentNode);
+        currentNode = FindNextChoice(index);
     }
 
-    void ShowNode(DialogueNode node)
+    private DialogueNode FindNextChoice(int index)
     {
-        if (node == null)
+        for(int i = 0; i < currentNode.choices.Count; i++)
         {
-            Debug.LogError("Node is null. Cannot display dialogue.");
-            return;
+            if (i == index)
+            {
+                string nextNode = currentNode.choices[i].nextNodeId;
+                return dialogueData.nodes.Find(node => node.id == nextNode);
+            }
         }
-
-        // Display the speaker and text
-        Debug.Log($"{node.speaker}: {node.text}");
-
-        // Display the choices
-        for (int i = 0; i < node.choices.Count; i++)
-        {
-            Debug.Log($"{i + 1}. {node.choices[i].text}");
-        }
-    }
-
-    public void Choose(int index)
-    {
-        if (currentNode == null)
-        {
-            Debug.LogError("Current node is null. Cannot choose a dialogue option.");
-            return;
-        }
-
-        // Get the selected choice
-        var choice = currentNode.choices[index];
-
-        // Find the next node based on the choice's nextNodeId
-        var nextNode = loader.dialogueData.nodes.Find(n => n.id == choice.nextNodeId);
-
-        // Update the current node and show it
-        currentNode = nextNode;
-        ShowNode(currentNode);
+        return null;
     }
 }

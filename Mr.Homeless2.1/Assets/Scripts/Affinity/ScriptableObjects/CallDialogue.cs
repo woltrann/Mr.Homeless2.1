@@ -5,6 +5,7 @@ using UnityEngine;
 public class CallDialogue : ScriptableObject
 {
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
+    public DialogueData data;
     public TaskData relatedTask;
 
 

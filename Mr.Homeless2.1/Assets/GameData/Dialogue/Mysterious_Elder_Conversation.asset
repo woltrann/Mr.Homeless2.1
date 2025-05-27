@@ -1,0 +1,399 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f940b9230e2e114e9d1785277fc8baa, type: 3}
+  m_Name: Mysterious_Elder_Conversation
+  m_EditorClassIdentifier: 
+  dialogueLines: []
+  data:
+    id: sample-dialogue
+    title: Mysterious Elder Conversation
+    description: A conversation with an old man guarding ancient ruins.
+    startNodeId: node1
+    nodes:
+    - id: node1
+      speaker: Old Man
+      text: Halt, traveler! Few dare to wander this close to the Forgotten Ruins.
+      posX: 302
+      posY: 136
+      choices:
+      - text: I'm just passing through. I mean no harm.
+        nextNodeId: node2
+        conditions: []
+        effects: []
+      - text: What are you guarding, old man?
+        nextNodeId: node3
+        conditions: []
+        effects: []
+      - text: Stand aside. I go where I please.
+        nextNodeId: node4
+        conditions: []
+        effects:
+        - variableName: elder_respect
+          operation: subtract
+          value: 1
+          variableType: int
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node2
+      speaker: Old Man
+      text: Many say the same, yet curiosity inevitably draws them closer to the
+        ruins. The stones whisper secrets not meant for mortal ears.
+      posX: 100
+      posY: 350
+      choices:
+      - text: What kind of secrets?
+        nextNodeId: node5
+        conditions: []
+        effects: []
+      - text: I'll be on my way then.
+        nextNodeId: node6
+        conditions: []
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node3
+      speaker: Old Man
+      text: I guard nothing... and everything. These ruins hold knowledge from a
+        civilization long forgotten. Knowledge that nearly destroyed the world once
+        before.
+      posX: 400
+      posY: 350
+      choices:
+      - text: Tell me more about this knowledge.
+        nextNodeId: node7
+        conditions: []
+        effects: []
+      - text: Has anyone entered the ruins recently?
+        nextNodeId: node8
+        conditions: []
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node4
+      speaker: Old Man
+      text: Your arrogance betrays your ignorance. The path you tread is perilous,
+        and I will not be responsible for your fate.
+      posX: 700
+      posY: 350
+      choices:
+      - text: I apologize for my rudeness.
+        nextNodeId: node9
+        conditions: []
+        effects:
+        - variableName: elder_respect
+          operation: add
+          value: 1
+          variableType: int
+      - text: I don't need your warnings.
+        nextNodeId: node10
+        conditions: []
+        effects:
+        - variableName: ruins_entrance_known
+          operation: set
+          value: true
+          variableType: bool
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node5
+      speaker: Old Man
+      text: Secrets of power beyond imagination. The ancients knew how to bend reality
+        to their will, but their hubris was their downfall.
+      posX: 50
+      posY: 550
+      choices:
+      - text: I seek this knowledge for myself.
+        nextNodeId: node11
+        conditions: []
+        effects: []
+      - text: Such power should remain buried.
+        nextNodeId: node12
+        conditions: []
+        effects:
+        - variableName: elder_respect
+          operation: add
+          value: 1
+          variableType: int
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node6
+      speaker: Old Man
+      text: Wise choice, traveler. May your journey be safe.
+      posX: 200
+      posY: 550
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node7
+      speaker: Old Man
+      text: They say the ancients discovered the language of creation itself. Words
+        that could reshape mountains or call forth storms. But as their power grew,
+        so did their corruption.
+      posX: 350
+      posY: 550
+      choices:
+      - text: How did their civilization fall?
+        nextNodeId: node13
+        conditions: []
+        effects: []
+      - text: Do you believe these stories?
+        nextNodeId: node14
+        conditions: []
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node8
+      speaker: Old Man
+      text: A scholar from the eastern academy came last season. She never returned.
+        Before her, it was a group of treasure hunters. Only one survived, and his
+        mind was... changed.
+      posX: 550
+      posY: 550
+      choices:
+      - text: Changed how?
+        nextNodeId: node15
+        conditions: []
+        effects: []
+      - text: Where is the entrance to the ruins?
+        nextNodeId: node16
+        conditions:
+        - variableName: elder_respect
+          operatorType: 
+          value: 1
+          variableType: int
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node9
+      speaker: Old Man
+      text: Your humility shows wisdom. Perhaps there is hope for you yet. What brings
+        you to these forgotten lands?
+      posX: 650
+      posY: 550
+      choices:
+      - text: I'm searching for knowledge about the ancients.
+        nextNodeId: node17
+        conditions: []
+        effects: []
+      - text: I'm just a traveler, curious about the world.
+        nextNodeId: node18
+        conditions: []
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node10
+      speaker: Old Man
+      text: Then go. The entrance lies beyond the dead tree that weeps red sap. Your
+        fate is your own.
+      posX: 850
+      posY: 550
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node11
+      speaker: Old Man
+      text: Then you seek your own destruction. Many before you have spoken those
+        very words. Their bones now litter the labyrinth below.
+      posX: 0
+      posY: 750
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node12
+      speaker: Old Man
+      text: You show unexpected wisdom. Perhaps... wait, what is that around your
+        neck?
+      posX: 150
+      posY: 750
+      choices:
+      - text: This? Just an old family amulet.
+        nextNodeId: node19
+        conditions: []
+        effects: []
+      - text: Nothing of importance.
+        nextNodeId: node20
+        conditions: []
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node13
+      speaker: Old Man
+      text: They turned their power against each other. A civil war that lasted three
+        days and three nights. When it ended, nothing remained but these ruins and
+        the dangerous knowledge buried within.
+      posX: 300
+      posY: 750
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node14
+      speaker: Old Man
+      text: I've seen enough in my lifetime to know that every legend contains a
+        kernel of truth. And I've heard... whispers... from within the ruins.
+      posX: 450
+      posY: 750
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node15
+      speaker: Old Man
+      text: He spoke in riddles, claiming to see beyond the veil of reality. He drew
+        symbols that made my eyes hurt to look upon them, before taking his own life
+        three days later.
+      posX: 600
+      posY: 750
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node16
+      speaker: Old Man
+      text: Your respect has earned you truth. Beyond the three standing stones,
+        where the morning sun casts no shadow, there is a path. Follow it to your
+        destiny... or your doom.
+      posX: 750
+      posY: 750
+      choices:
+      - text: Thank you. I will proceed with caution.
+        nextNodeId: node21
+        conditions: []
+        effects:
+        - variableName: ruins_entrance_known
+          operation: set
+          value: true
+          variableType: bool
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node17
+      speaker: Old Man
+      text: Knowledge, always knowledge. But to what end? Power? Enlightenment? The
+        line between the two is thinner than you might think.
+      posX: 300
+      posY: 950
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node18
+      speaker: Old Man
+      text: Curiosity is both a blessing and a curse. It drives us forward, yet often
+        leads us to places we should not go.
+      posX: 450
+      posY: 950
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node19
+      speaker: Old Man
+      text: That is no ordinary amulet. It bears the sigil of the Ancient Guardians.
+        How came you by such an artifact?
+      posX: 100
+      posY: 950
+      choices:
+      - text: It was passed down through generations in my family.
+        nextNodeId: node22
+        conditions: []
+        effects: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node20
+      speaker: Old Man
+      text: You lie poorly. That amulet marks you as... No, it cannot be. After all
+        these centuries...
+      posX: 250
+      posY: 950
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node21
+      speaker: Old Man
+      text: 'Remember this warning: what lies below responds to intention as much
+        as action. A pure heart may pass where a corrupt one will be destroyed.'
+      posX: 700
+      posY: 950
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: node22
+      speaker: Old Man
+      text: Then perhaps our meeting is no coincidence. The prophecy speaks of a
+        descendent who would return when the stars align once more... which they
+        do tonight.
+      posX: 100
+      posY: 1150
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+  relatedTask: {fileID: 11400000, guid: 5953d12baff1dcc49b2e35999778ca6c, type: 2}

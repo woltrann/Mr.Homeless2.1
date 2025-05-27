@@ -29,4 +29,32 @@ MonoBehaviour:
     text: "Ne talihsizlik daha fazlas\u0131n\u0131 \xE7ekmen gerekiyor demek"
     voiceClip: {fileID: 0}
     autoAdvanceDelay: 4
+  data:
+    id: 
+    title: 
+    description: 
+    startNodeId: 
+    nodes:
+    - id: 
+      speaker: 
+      text: 
+      posX: 0
+      posY: 0
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
+    - id: 
+      speaker: 
+      text: 
+      posX: 0
+      posY: 0
+      choices: []
+      conditions:
+        variableName: 
+        operatorType: 
+        value: 
+        variableType: 
   relatedTask: {fileID: 11400000, guid: 5953d12baff1dcc49b2e35999778ca6c, type: 2}

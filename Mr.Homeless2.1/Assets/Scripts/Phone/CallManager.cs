@@ -68,6 +68,7 @@ public class CallManager : MonoBehaviour
         }
     }
 
+
     private IEnumerator TypeText(string text)
     {
         dialogueText.text = "";
