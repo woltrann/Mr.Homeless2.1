@@ -166,15 +166,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Zoom",
-                    "type": "Value",
-                    "id": "7f33b1d9-0f82-4570-a667-61b96ad80074",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "a30cf787-ad8c-488d-986e-9d31c82230dd",
@@ -182,6 +173,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "b60e3b55-e420-4041-bb9a-f9078b70d2f9",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -362,8 +362,19 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "5a6e522c-074a-4288-a820-63d2b2d0f352",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
-                    "id": "35392a65-8968-4de0-ac20-495e7d2cac46",
+                    "id": "481aafa7-2721-4a4f-9275-f4f4f6e47d52",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -374,56 +385,34 @@
                 },
                 {
                     "name": "negative",
-                    "id": "d938a08e-4463-4293-bd92-0d67846125b7",
+                    "id": "10227c7e-b61e-4394-a80b-062b2ec2d42c",
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "59abba6d-ebd1-4021-9aa2-00463ec1da84",
+                    "id": "27daea1d-a4d1-42f3-8b1c-9b83d9f9868d",
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "c99f8ec9-8fcd-4fc8-a7c7-86b726562ef9",
-                    "path": "<Gamepad>/leftStick/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7f3f76ae-13cf-43c4-9782-b9074e36e5b2",
+                    "id": "b48c706c-2cca-4c2e-8d33-694df3d386dd",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5a6e522c-074a-4288-a820-63d2b2d0f352",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

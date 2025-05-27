@@ -50,6 +50,7 @@ public class Phone : MonoBehaviour
             case 0: phonePanels[0].SetActive(true); break;
             case 1: phonePanels[1].SetActive(true); break;
             case 2: phonePanels[2].SetActive(true); break;
+            case 3: phonePanels[3].SetActive(true); break;
             default: foreach (var obj in phonePanels) obj.SetActive(false); break;
 
         }
