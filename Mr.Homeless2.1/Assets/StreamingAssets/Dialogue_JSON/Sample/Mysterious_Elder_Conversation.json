@@ -1,0 +1,401 @@
+{
+  "Id": "sample-dialogue",
+  "Title": "Mysterious Elder Conversation",
+  "Description": "A conversation with an old man guarding ancient ruins.",
+  "StartNodeId": "node1",
+  "Nodes": [
+    {
+      "Id": "node1",
+      "Speaker": "Old Man",
+      "Text": "Halt, traveler! Few dare to wander this close to the Forgotten Ruins.",
+      "PosX": 302,
+      "PosY": 136,
+      "Choices": [
+        {
+          "Text": "I'm just passing through. I mean no harm.",
+          "NextNodeId": "node2",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "What are you guarding, old man?",
+          "NextNodeId": "node3",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "Stand aside. I go where I please.",
+          "NextNodeId": "node4",
+          "Conditions": [],
+          "Effects": [
+            {
+              "VariableName": "elder_respect",
+              "Operation": "subtract",
+              "Value": "1",
+              "VariableType": "int"
+            }
+          ]
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node2",
+      "Speaker": "Old Man",
+      "Text": "Many say the same, yet curiosity inevitably draws them closer to the ruins. The stones whisper secrets not meant for mortal ears.",
+      "PosX": 100,
+      "PosY": 350,
+      "Choices": [
+        {
+          "Text": "What kind of secrets?",
+          "NextNodeId": "node5",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "I'll be on my way then.",
+          "NextNodeId": "node6",
+          "Conditions": [],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node3",
+      "Speaker": "Old Man",
+      "Text": "I guard nothing... and everything. These ruins hold knowledge from a civilization long forgotten. Knowledge that nearly destroyed the world once before.",
+      "PosX": 400,
+      "PosY": 350,
+      "Choices": [
+        {
+          "Text": "Tell me more about this knowledge.",
+          "NextNodeId": "node7",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "Has anyone entered the ruins recently?",
+          "NextNodeId": "node8",
+          "Conditions": [],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node4",
+      "Speaker": "Old Man",
+      "Text": "Your arrogance betrays your ignorance. The path you tread is perilous, and I will not be responsible for your fate.",
+      "PosX": 700,
+      "PosY": 350,
+      "Choices": [
+        {
+          "Text": "I apologize for my rudeness.",
+          "NextNodeId": "node9",
+          "Conditions": [],
+          "Effects": [
+            {
+              "VariableName": "elder_respect",
+              "Operation": "add",
+              "Value": "1",
+              "VariableType": "int"
+            }
+          ]
+        },
+        {
+          "Text": "I don't need your warnings.",
+          "NextNodeId": "node10",
+          "Conditions": [],
+          "Effects": [
+            {
+              "VariableName": "ruins_entrance_known",
+              "Operation": "set",
+              "Value": "true",
+              "VariableType": "bool"
+            }
+          ]
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node5",
+      "Speaker": "Old Man",
+      "Text": "Secrets of power beyond imagination. The ancients knew how to bend reality to their will, but their hubris was their downfall.",
+      "PosX": 50,
+      "PosY": 550,
+      "Choices": [
+        {
+          "Text": "I seek this knowledge for myself.",
+          "NextNodeId": "node11",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "Such power should remain buried.",
+          "NextNodeId": "node12",
+          "Conditions": [],
+          "Effects": [
+            {
+              "VariableName": "elder_respect",
+              "Operation": "add",
+              "Value": "1",
+              "VariableType": "int"
+            }
+          ]
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node6",
+      "Speaker": "Old Man",
+      "Text": "Wise choice, traveler. May your journey be safe.",
+      "PosX": 200,
+      "PosY": 550,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node7",
+      "Speaker": "Old Man",
+      "Text": "They say the ancients discovered the language of creation itself. Words that could reshape mountains or call forth storms. But as their power grew, so did their corruption.",
+      "PosX": 350,
+      "PosY": 550,
+      "Choices": [
+        {
+          "Text": "How did their civilization fall?",
+          "NextNodeId": "node13",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "Do you believe these stories?",
+          "NextNodeId": "node14",
+          "Conditions": [],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node8",
+      "Speaker": "Old Man",
+      "Text": "A scholar from the eastern academy came last season. She never returned. Before her, it was a group of treasure hunters. Only one survived, and his mind was... changed.",
+      "PosX": 550,
+      "PosY": 550,
+      "Choices": [
+        {
+          "Text": "Changed how?",
+          "NextNodeId": "node15",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "Where is the entrance to the ruins?",
+          "NextNodeId": "node16",
+          "Conditions": [
+            {
+              "VariableName": "elder_respect",
+              "Operator": ">=",
+              "Value": "1",
+              "VariableType": "int"
+            }
+          ],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node9",
+      "Speaker": "Old Man",
+      "Text": "Your humility shows wisdom. Perhaps there is hope for you yet. What brings you to these forgotten lands?",
+      "PosX": 650,
+      "PosY": 550,
+      "Choices": [
+        {
+          "Text": "I'm searching for knowledge about the ancients.",
+          "NextNodeId": "node17",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "I'm just a traveler, curious about the world.",
+          "NextNodeId": "node18",
+          "Conditions": [],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node10",
+      "Speaker": "Old Man",
+      "Text": "Then go. The entrance lies beyond the dead tree that weeps red sap. Your fate is your own.",
+      "PosX": 850,
+      "PosY": 550,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node11",
+      "Speaker": "Old Man",
+      "Text": "Then you seek your own destruction. Many before you have spoken those very words. Their bones now litter the labyrinth below.",
+      "PosX": 0,
+      "PosY": 750,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node12",
+      "Speaker": "Old Man",
+      "Text": "You show unexpected wisdom. Perhaps... wait, what is that around your neck?",
+      "PosX": 150,
+      "PosY": 750,
+      "Choices": [
+        {
+          "Text": "This? Just an old family amulet.",
+          "NextNodeId": "node19",
+          "Conditions": [],
+          "Effects": []
+        },
+        {
+          "Text": "Nothing of importance.",
+          "NextNodeId": "node20",
+          "Conditions": [],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node13",
+      "Speaker": "Old Man",
+      "Text": "They turned their power against each other. A civil war that lasted three days and three nights. When it ended, nothing remained but these ruins and the dangerous knowledge buried within.",
+      "PosX": 300,
+      "PosY": 750,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node14",
+      "Speaker": "Old Man",
+      "Text": "I've seen enough in my lifetime to know that every legend contains a kernel of truth. And I've heard... whispers... from within the ruins.",
+      "PosX": 450,
+      "PosY": 750,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node15",
+      "Speaker": "Old Man",
+      "Text": "He spoke in riddles, claiming to see beyond the veil of reality. He drew symbols that made my eyes hurt to look upon them, before taking his own life three days later.",
+      "PosX": 600,
+      "PosY": 750,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node16",
+      "Speaker": "Old Man",
+      "Text": "Your respect has earned you truth. Beyond the three standing stones, where the morning sun casts no shadow, there is a path. Follow it to your destiny... or your doom.",
+      "PosX": 750,
+      "PosY": 750,
+      "Choices": [
+        {
+          "Text": "Thank you. I will proceed with caution.",
+          "NextNodeId": "node21",
+          "Conditions": [],
+          "Effects": [
+            {
+              "VariableName": "ruins_entrance_known",
+              "Operation": "set",
+              "Value": "true",
+              "VariableType": "bool"
+            }
+          ]
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node17",
+      "Speaker": "Old Man",
+      "Text": "Knowledge, always knowledge. But to what end? Power? Enlightenment? The line between the two is thinner than you might think.",
+      "PosX": 300,
+      "PosY": 950,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node18",
+      "Speaker": "Old Man",
+      "Text": "Curiosity is both a blessing and a curse. It drives us forward, yet often leads us to places we should not go.",
+      "PosX": 450,
+      "PosY": 950,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node19",
+      "Speaker": "Old Man",
+      "Text": "That is no ordinary amulet. It bears the sigil of the Ancient Guardians. How came you by such an artifact?",
+      "PosX": 100,
+      "PosY": 950,
+      "Choices": [
+        {
+          "Text": "It was passed down through generations in my family.",
+          "NextNodeId": "node22",
+          "Conditions": [],
+          "Effects": []
+        }
+      ],
+      "Conditions": {}
+    },
+    {
+      "Id": "node20",
+      "Speaker": "Old Man",
+      "Text": "You lie poorly. That amulet marks you as... No, it cannot be. After all these centuries...",
+      "PosX": 250,
+      "PosY": 950,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node21",
+      "Speaker": "Old Man",
+      "Text": "Remember this warning: what lies below responds to intention as much as action. A pure heart may pass where a corrupt one will be destroyed.",
+      "PosX": 700,
+      "PosY": 950,
+      "Choices": [],
+      "Conditions": {}
+    },
+    {
+      "Id": "node22",
+      "Speaker": "Old Man",
+      "Text": "Then perhaps our meeting is no coincidence. The prophecy speaks of a descendent who would return when the stars align once more... which they do tonight.",
+      "PosX": 100,
+      "PosY": 1150,
+      "Choices": [],
+      "Conditions": {}
+    }
+  ],
+  "Variables": {
+    "elder_respect": {
+      "Name": "elder_respect",
+      "Type": "int",
+      "DefaultValue": "0",
+      "CurrentValue": null,
+      "Description": "Tracks how respectful you've been to the old man"
+    },
+    "ruins_entrance_known": {
+      "Name": "ruins_entrance_known",
+      "Type": "bool",
+      "DefaultValue": "false",
+      "CurrentValue": null,
+      "Description": "Whether you know the location of the ruins entrance"
+    }
+  }
+}

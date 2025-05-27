@@ -99,12 +99,9 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = (cam.position - transform.position).normalized;
         float currentDistance = Vector3.Distance(cam.position, transform.position);
         float targetDistance = Mathf.Clamp(currentDistance - zoomInput * zoomSpeed, minZoomDistance, maxZoomDistance);
+        float smoothedDistance = Mathf.SmoothDamp(currentDistance, targetDistance, ref zoomVelocity, zoomSmoothTime);
+        cam.position = transform.position + direction * smoothedDistance;
 
-        if (Mathf.Abs(currentDistance - targetDistance) > 0.01f) // Avoid jitter
-        {
-            float smoothedDistance = Mathf.SmoothDamp(currentDistance, targetDistance, ref zoomVelocity, zoomSmoothTime);
-            cam.position = transform.position + direction * smoothedDistance;
-        }
     }
 
     public void SetLastCamTransform()
